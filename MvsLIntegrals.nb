@@ -1,0 +1,339 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11267,        329]
+NotebookOptionsPosition[      8767,        272]
+NotebookOutlinePosition[      9119,        288]
+CellTagsIndexPosition[      9076,        285]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mass / Light Integrals", "Title",
+ CellChangeTimes->{{3.8049589210019827`*^9, 
+  3.804958925620817*^9}},ExpressionUUID->"3960408a-ae03-472f-b5bd-\
+a88cff27cbb0"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+This notebook contains the integrals needed to calculate the Mass to Light of \
+the Universe. \
+\>", "Chapter",
+ CellChangeTimes->{{3.804958932580538*^9, 
+  3.804958973339642*^9}},ExpressionUUID->"510cd6de-4aa0-404c-856f-\
+704d745b9035"],
+
+Cell[CellGroupData[{
+
+Cell["First, define the Schechter Luminosity function", "Subchapter",
+ CellChangeTimes->{{3.804958980505052*^9, 3.804958984072953*^9}, {
+  3.804959018430291*^9, 
+  3.804959036234432*^9}},ExpressionUUID->"8fb3040b-4f54-4b61-997f-\
+f068230f94b7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPhi]", "[", 
+   RowBox[{"L_", ",", "\[Alpha]_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"n0", "/", "lstar"}], ")"}], "*", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"L", "/", "lstar"}], ")"}], "^", "\[Alpha]"}], " ", "*", 
+   RowBox[{"\[ExponentialE]", "^", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "L"}], "/", "lstar"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.804959062972641*^9, 3.8049590795581083`*^9}, {
+  3.804959112016149*^9, 3.8049591737433662`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"f206bfb0-0f99-4659-96ff-c4b87be0adba"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Then, we calculate the Total Luminosity", "Subchapter",
+ CellChangeTimes->{{3.804959047988447*^9, 
+  3.8049590561347322`*^9}},ExpressionUUID->"fb6685e8-1b6e-4996-8723-\
+3078c04e49c1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ltot", "[", "\[Alpha]_", "]"}], " ", ":=", " ", 
+  RowBox[{"Refine", "[", 
+   RowBox[{
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"L", "*", 
+       RowBox[{"\[CapitalPhi]", "[", 
+        RowBox[{"L", ",", "\[Alpha]"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"L", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Element", "[", 
+       RowBox[{"lstar", ",", "Reals"}], "]"}], ",", 
+      RowBox[{"lstar", " ", ">", "0"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.804958988268508*^9, 3.8049590392068043`*^9}, {
+  3.804959180382472*^9, 3.8049592219403343`*^9}, {3.804959387434548*^9, 
+  3.804959453793398*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"3e28a2fe-9741-4c24-92fd-d5a8bd6a8533"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Ltot", "[", 
+  RowBox[{"-", "1.2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8049592024980507`*^9, 3.804959238609233*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"9b52c642-391a-4e5c-a288-6ecb816b4ef3"],
+
+Cell[BoxData[
+ RowBox[{"1.1642297137253035`", " ", 
+  SuperscriptBox["lstar", "1.`"], " ", "n0"}]], "Output",
+ CellChangeTimes->{{3.804959239383073*^9, 3.804959253000291*^9}, {
+  3.804959421496251*^9, 3.8049594571213818`*^9}},
+ CellLabel->"Out[12]=",ExpressionUUID->"0ce1486b-ca56-48a8-92ae-48c644216377"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Now, for the Mass", "Subchapter",
+ CellChangeTimes->{{3.804959483751272*^9, 
+  3.804959489188942*^9}},ExpressionUUID->"a075d465-5f8a-4e65-b319-\
+8770e9f77413"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+This gets a little tricky. To get the Mass we multiply the Luminosity \
+function by M/L as a function of L, L itself, and then integrate. M/L(L) is \
+piecewise, so the integral gets split up into two parts.\
+\>", "Section",
+ CellChangeTimes->{{3.804959497017953*^9, 
+  3.804959565803502*^9}},ExpressionUUID->"c9832072-173b-4b5e-a4aa-\
+679ce8d09420"],
+
+Cell[CellGroupData[{
+
+Cell["We\[CloseCurlyQuote]ll do the bright mass first, where M/L(L) is \
+constant.", "Subsection",
+ CellChangeTimes->{{3.804959587280675*^9, 
+  3.8049596054239197`*^9}},ExpressionUUID->"263fdb86-804b-4501-b824-\
+4282b6b08d13"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ML0", "[", 
+   RowBox[{"fsp_", ",", "fE_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"37", "*", "fsp"}], " ", "+", " ", 
+   RowBox[{"2", "*", "37", "*", "fE"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Mbgt", "[", 
+   RowBox[{"\[Alpha]_", ",", "fsp_", ",", "fE_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"n0", "*", "lstar", " ", "*", " ", 
+   RowBox[{"ML0", "[", 
+    RowBox[{"fsp", ",", "fE"}], "]"}], "*", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "^", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "+", "1"}], ")"}]}], "*", 
+      RowBox[{"\[ExponentialE]", "^", 
+       RowBox[{"-", "x"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "1", ",", "\[Infinity]"}], "}"}]}], 
+    "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.8049595732334414`*^9, 3.804959771683824*^9}, {
+  3.804959884987008*^9, 3.804959890964197*^9}, {3.804960650103285*^9, 
+  3.804960667535582*^9}, {3.804960913667622*^9, 
+  3.8049609168571444`*^9}},ExpressionUUID->"fb8ccfb4-2a20-4a22-bdb3-\
+65e2bb72dea8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Mbgt", "[", 
+  RowBox[{
+   RowBox[{"-", "1.2"}], ",", "fsp", ",", "fE"}], "]"}]], "Input",
+ CellChangeTimes->{{3.804959778017158*^9, 3.804959785011698*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"053d867f-b71c-4a18-8aa0-3c9b8dd4bd86"],
+
+Cell[BoxData[
+ RowBox[{"0.32764834433507495`", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"74", " ", "fE"}], "+", 
+    RowBox[{"37", " ", "fsp"}]}], ")"}], " ", "lstar", " ", "n0"}]], "Output",\
+
+ CellChangeTimes->{3.804959787218589*^9, 3.804959901134451*^9, 
+  3.804960671427515*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"ca20c67a-6c0b-4fca-a455-34bdf1a22501"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{"0.32764834433507495`", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"74", " ", "fE"}], "+", 
+     RowBox[{"37", " ", "fsp"}]}], ")"}], " ", "lstar", " ", "n0"}], 
+  "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[29]:=",ExpressionUUID->"c5b34799-28ce-4a18-8ab6-698f9691a733"],
+
+Cell[BoxData[
+ RowBox[{"12.122988740397773`", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"2.`", " ", "fE"}], "+", "fsp"}], ")"}], " ", "lstar", " ", 
+  "n0"}]], "Output",
+ CellChangeTimes->{3.8049606763727417`*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"3576d40c-59a7-4c29-9669-8494e913c62a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+And now the faint mass , which is slightly more complicated. There is an \
+extra factor of x = (L/L*)^-0.54 to account for the increase in mass to light \
+as galaxies get fainter.\
+\>", "Subsection",
+ CellChangeTimes->{{3.804960696009873*^9, 3.804960706622057*^9}, {
+  3.80496100820746*^9, 
+  3.804961088393527*^9}},ExpressionUUID->"bc49c316-0336-4a88-99e5-\
+5dcd723695e4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Mft", "[", 
+   RowBox[{"\[Alpha]_", ",", "fsp_", ",", "fE_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"n0", "*", "lstar", "*", 
+   RowBox[{"ML0", "[", 
+    RowBox[{"fsp", ",", "fE"}], "]"}], "*", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "^", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "+", "0.46"}], ")"}]}], "*", 
+      RowBox[{"\[ExponentialE]", "^", 
+       RowBox[{"-", "x"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.804960830703784*^9, 3.804961005636365*^9}, {
+  3.804961187503769*^9, 3.804961190300495*^9}, {3.804961220637559*^9, 
+  3.804961228318829*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"ff678b83-fff6-4bf6-be57-683411d465a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Mft", "[", 
+  RowBox[{
+   RowBox[{"-", "1.2"}], ",", "fsp", ",", "fE"}], "]"}]], "Input",
+ CellChangeTimes->{{3.804960968900811*^9, 3.804960978703165*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"801fa3a5-56a9-4da2-becf-6331dc17a37f"],
+
+Cell[BoxData[
+ RowBox[{"3.2310111374175636`", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"74", " ", "fE"}], "+", 
+    RowBox[{"37", " ", "fsp"}]}], ")"}], " ", "lstar", " ", "n0"}]], "Output",\
+
+ CellChangeTimes->{
+  3.804960979297359*^9, {3.804961092054953*^9, 3.8049610958378067`*^9}, 
+   3.804961197854665*^9, 3.804961233011012*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"64a060d7-2957-43f1-8a79-177b90cbbeb7"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 851},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 167, 3, 98, "Title",ExpressionUUID->"3960408a-ae03-472f-b5bd-a88cff27cbb0"],
+Cell[CellGroupData[{
+Cell[772, 29, 247, 6, 117, "Chapter",ExpressionUUID->"510cd6de-4aa0-404c-856f-704d745b9035"],
+Cell[CellGroupData[{
+Cell[1044, 39, 244, 4, 65, "Subchapter",ExpressionUUID->"8fb3040b-4f54-4b61-997f-f068230f94b7"],
+Cell[1291, 45, 623, 16, 30, "Input",ExpressionUUID->"f206bfb0-0f99-4659-96ff-c4b87be0adba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1951, 66, 189, 3, 65, "Subchapter",ExpressionUUID->"fb6685e8-1b6e-4996-8723-3078c04e49c1"],
+Cell[2143, 71, 811, 20, 30, "Input",ExpressionUUID->"3e28a2fe-9741-4c24-92fd-d5a8bd6a8533"],
+Cell[CellGroupData[{
+Cell[2979, 95, 224, 4, 30, "Input",ExpressionUUID->"9b52c642-391a-4e5c-a288-6ecb816b4ef3"],
+Cell[3206, 101, 305, 5, 34, "Output",ExpressionUUID->"0ce1486b-ca56-48a8-92ae-48c644216377"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3560, 112, 165, 3, 65, "Subchapter",ExpressionUUID->"a075d465-5f8a-4e65-b319-8770e9f77413"],
+Cell[CellGroupData[{
+Cell[3750, 119, 359, 7, 181, "Section",ExpressionUUID->"c9832072-173b-4b5e-a4aa-679ce8d09420"],
+Cell[CellGroupData[{
+Cell[4134, 130, 226, 4, 54, "Subsection",ExpressionUUID->"263fdb86-804b-4501-b824-4282b6b08d13"],
+Cell[4363, 136, 1068, 28, 52, "Input",ExpressionUUID->"fb8ccfb4-2a20-4a22-bdb3-65e2bb72dea8"],
+Cell[CellGroupData[{
+Cell[5456, 168, 259, 5, 30, "Input",ExpressionUUID->"053d867f-b71c-4a18-8aa0-3c9b8dd4bd86"],
+Cell[5718, 175, 366, 9, 34, "Output",ExpressionUUID->"ca20c67a-6c0b-4fca-a455-34bdf1a22501"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6121, 189, 337, 9, 30, "Input",ExpressionUUID->"c5b34799-28ce-4a18-8ab6-698f9691a733"],
+Cell[6461, 200, 296, 7, 34, "Output",ExpressionUUID->"3576d40c-59a7-4c29-9669-8494e913c62a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6806, 213, 383, 8, 108, "Subsection",ExpressionUUID->"bc49c316-0336-4a88-99e5-5dcd723695e4"],
+Cell[7192, 223, 796, 20, 30, "Input",ExpressionUUID->"ff678b83-fff6-4bf6-be57-683411d465a1"],
+Cell[CellGroupData[{
+Cell[8013, 247, 258, 5, 30, "Input",ExpressionUUID->"801fa3a5-56a9-4da2-becf-6331dc17a37f"],
+Cell[8274, 254, 417, 10, 68, "Output",ExpressionUUID->"64a060d7-2957-43f1-8a79-177b90cbbeb7"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
