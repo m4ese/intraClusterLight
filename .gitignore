@@ -4,7 +4,8 @@
 .LSOverride
 *.json
 *.csv
-
+*.ipynb_checkpoints
+Ã
 # Icon must end with two \r
 Icon
 
