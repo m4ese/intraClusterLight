@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11267,        329]
-NotebookOptionsPosition[      8767,        272]
-NotebookOutlinePosition[      9119,        288]
-CellTagsIndexPosition[      9076,        285]
+NotebookDataLength[     17643,        492]
+NotebookOptionsPosition[     13396,        405]
+NotebookOutlinePosition[     13748,        421]
+CellTagsIndexPosition[     13705,        418]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -263,7 +263,140 @@ Cell[BoxData[
   3.804960979297359*^9, {3.804961092054953*^9, 3.8049610958378067`*^9}, 
    3.804961197854665*^9, 3.804961233011012*^9},
  CellLabel->"Out[42]=",ExpressionUUID->"64a060d7-2957-43f1-8a79-177b90cbbeb7"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8049623048533287`*^9, 
+  3.804962305467649*^9}},ExpressionUUID->"2f48e48c-1cf5-47b1-9e29-\
+0929429f8bac"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Now, we apply the morphologies we want. At Small Radii and for faint \
+galaxies, we want f,sp,ft = 0.1,f_E,ft = 0.9. at small Radii and bright \
+galaxies, we want  f,sp,ft = 0.7,f_E,ft = 0.3.\
+\>", "Section",
+ CellChangeTimes->{{3.804962315332623*^9, 3.8049623177003937`*^9}, {
+  3.804962435904772*^9, 3.8049625075073233`*^9}, {3.804962595742332*^9, 
+  3.804962596884452*^9}},ExpressionUUID->"c860c0ce-7bb9-488c-b67b-\
+067e96ba17a9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"MftSR", " ", "=", " ", 
+  RowBox[{"Mft", "[", 
+   RowBox[{
+    RowBox[{"-", "1.2"}], ",", "0.1", ",", "0.9"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"MbgtSR", " ", "=", " ", 
+  RowBox[{"Mbgt", "[", 
+   RowBox[{
+    RowBox[{"-", "1.2"}], ",", "0.7", ",", "0.3"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.804962602127475*^9, 3.804962647843713*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"35734156-e912-4f14-bb07-1e64e3902be4"],
+
+Cell[BoxData[
+ RowBox[{"227.14008296045475`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.804962648352201*^9},
+ CellLabel->"Out[43]=",ExpressionUUID->"41adea3d-ab60-4443-b2db-049837c6e818"],
+
+Cell[BoxData[
+ RowBox[{"15.759885362517103`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.804962648525352*^9},
+ CellLabel->"Out[44]=",ExpressionUUID->"625b49c1-8f3f-4f0c-900e-58870c32927c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MtotSR", " ", "=", " ", 
+  RowBox[{"MftSR", "+", "MbgtSR"}]}]], "Input",
+ CellChangeTimes->{{3.804962713670426*^9, 3.8049627231334057`*^9}},
+ CellLabel->"In[45]:=",ExpressionUUID->"5b2dc1f6-92b0-4ee4-8d31-4edbf6591ccc"],
+
+Cell[BoxData[
+ RowBox[{"242.89996832297186`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.8049627252260323`*^9},
+ CellLabel->"Out[45]=",ExpressionUUID->"1e5b672d-21d3-4f4e-943c-b80f014a542d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MvsLSR", " ", "=", " ", 
+  RowBox[{"MtotSR", "/", 
+   RowBox[{"Ltot", "[", 
+    RowBox[{"-", "1.2"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.804962739274952*^9, 3.804962757825301*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"8a398778-244e-47bd-92a1-fce066ce335c"],
+
+Cell[BoxData["208.63577476109958`"], "Output",
+ CellChangeTimes->{{3.804962749374454*^9, 3.804962759642359*^9}},
+ CellLabel->"Out[47]=",ExpressionUUID->"74df423d-9c7f-4a28-9474-6bf91e902ed0"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+ At Large Radii and for faint galaxies, we want f,sp,ft = 0.8,f_E,ft = 0.2. \
+at small Radii and bright galaxies, we want  f,sp,ft = 0.7,f_E,ft = 0.3.\
+\>", "Section",
+ CellChangeTimes->{{3.804962849342038*^9, 
+  3.804962860241548*^9}},ExpressionUUID->"9290c831-bbae-486c-89c4-\
+aae90ee3ed46"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"MftLSS", " ", "=", " ", 
+  RowBox[{"Mft", "[", 
+   RowBox[{
+    RowBox[{"-", "1.2"}], ",", "0.8", ",", "0.2"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"MbgtLSS", " ", "=", " ", 
+  RowBox[{"Mbgt", "[", 
+   RowBox[{
+    RowBox[{"-", "1.2"}], ",", "0.7", ",", "0.3"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"MtotLSS", " ", "=", " ", 
+  RowBox[{"MftLSS", " ", "+", " ", "MbgtLSS"}]}]}], "Input",
+ CellChangeTimes->{{3.804962872243004*^9, 3.80496290913766*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"0d7f5d50-5ae6-49f4-ba36-089898e225b7"],
+
+Cell[BoxData[
+ RowBox[{"143.45689450133983`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.804962910166602*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"e3644075-8906-4fd3-8766-a3a9e78e4554"],
+
+Cell[BoxData[
+ RowBox[{"15.759885362517103`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.804962910338979*^9},
+ CellLabel->"Out[49]=",ExpressionUUID->"3d44cd9c-58af-4c3d-932a-61d712b509e3"],
+
+Cell[BoxData[
+ RowBox[{"159.21677986385694`", " ", "lstar", " ", "n0"}]], "Output",
+ CellChangeTimes->{3.804962910343042*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"6a895e5a-272c-4c28-9cb2-da55a89f3272"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MvsLLSS", "=", " ", 
+  RowBox[{"MtotLSS", "/", 
+   RowBox[{"Ltot", "[", 
+    RowBox[{"-", "1.2"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.804962945873714*^9, 3.8049629504502573`*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"6491fe80-0128-447b-bfcd-10d8eb7a2044"],
+
+Cell[BoxData["136.75718630681132`"], "Output",
+ CellChangeTimes->{3.804962952313452*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"25d72d3d-986f-46d0-a925-39f430e8a0a4"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -324,8 +457,38 @@ Cell[6806, 213, 383, 8, 108, "Subsection",ExpressionUUID->"bc49c316-0336-4a88-99
 Cell[7192, 223, 796, 20, 30, "Input",ExpressionUUID->"ff678b83-fff6-4bf6-be57-683411d465a1"],
 Cell[CellGroupData[{
 Cell[8013, 247, 258, 5, 30, "Input",ExpressionUUID->"801fa3a5-56a9-4da2-becf-6331dc17a37f"],
-Cell[8274, 254, 417, 10, 68, "Output",ExpressionUUID->"64a060d7-2957-43f1-8a79-177b90cbbeb7"]
+Cell[8274, 254, 417, 10, 34, "Output",ExpressionUUID->"64a060d7-2957-43f1-8a79-177b90cbbeb7"]
+}, Open  ]],
+Cell[8706, 267, 154, 3, 30, "Input",ExpressionUUID->"2f48e48c-1cf5-47b1-9e29-0929429f8bac"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8909, 276, 443, 8, 143, "Section",ExpressionUUID->"c860c0ce-7bb9-488c-b67b-067e96ba17a9"],
+Cell[CellGroupData[{
+Cell[9377, 288, 460, 11, 52, "Input",ExpressionUUID->"35734156-e912-4f14-bb07-1e64e3902be4"],
+Cell[9840, 301, 204, 3, 34, "Output",ExpressionUUID->"41adea3d-ab60-4443-b2db-049837c6e818"],
+Cell[10047, 306, 204, 3, 34, "Output",ExpressionUUID->"625b49c1-8f3f-4f0c-900e-58870c32927c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10288, 314, 243, 4, 30, "Input",ExpressionUUID->"5b2dc1f6-92b0-4ee4-8d31-4edbf6591ccc"],
+Cell[10534, 320, 206, 3, 34, "Output",ExpressionUUID->"1e5b672d-21d3-4f4e-943c-b80f014a542d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10777, 328, 291, 6, 30, "Input",ExpressionUUID->"8a398778-244e-47bd-92a1-fce066ce335c"],
+Cell[11071, 336, 191, 2, 34, "Output",ExpressionUUID->"74df423d-9c7f-4a28-9474-6bf91e902ed0"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11311, 344, 303, 6, 143, "Section",ExpressionUUID->"9290c831-bbae-486c-89c4-aae90ee3ed46"],
+Cell[CellGroupData[{
+Cell[11639, 354, 575, 14, 73, "Input",ExpressionUUID->"0d7f5d50-5ae6-49f4-ba36-089898e225b7"],
+Cell[12217, 370, 204, 3, 34, "Output",ExpressionUUID->"e3644075-8906-4fd3-8766-a3a9e78e4554"],
+Cell[12424, 375, 204, 3, 34, "Output",ExpressionUUID->"3d44cd9c-58af-4c3d-932a-61d712b509e3"],
+Cell[12631, 380, 204, 3, 34, "Output",ExpressionUUID->"6a895e5a-272c-4c28-9cb2-da55a89f3272"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12872, 388, 290, 6, 30, "Input",ExpressionUUID->"6491fe80-0128-447b-bfcd-10d8eb7a2044"],
+Cell[13165, 396, 167, 2, 34, "Output",ExpressionUUID->"25d72d3d-986f-46d0-a925-39f430e8a0a4"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -334,6 +497,4 @@ Cell[8274, 254, 417, 10, 68, "Output",ExpressionUUID->"64a060d7-2957-43f1-8a79-1
 }
 ]
 *)
-
-(* End of internal cache information *)
 
